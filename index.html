@@ -47,49 +47,47 @@
     <main>
         <section id="introduction">
             <h2>Introduction</h2>
-            <p>In the past, we have seen demonstrations of vision models learning to become robust to adversarial perturbations to their inputs, which greatly improved the apparent interpretability of their activation maps. In this work, I examine methods to do something similar to improve the interpretability of activations using beneficial perturbations (called Visual Prompts in other literature) instead:</p>
-            <ul>
-                <li>optimizing over perturbations and model weights to minimize the size of the perturbation, so as to make the perturbation unnecessary</li>
-                <li>performing knowledge distillation between the base model and the model augmented with the perturbation</li>
-            </ul>
+            <a href="https://github.com/Diatom33/perturbation-internalization">Project Repo</a>
+            <p>In the past, researchers have been able to improve the accuracy of vision models by mixing in adversarially perturbed data with the original training data [3]. Further research has shown that this training with adversarial examples also improves the interpretability of the activations of the vision model [4]. This work aims to adapt the techniques from beneficial perturbations to input data, also known as Visual Prompting, to create more robust and interpretable models that achieve lower loss than their already-improved beneficially perturbed counterparts [1].</p>
         </section>
 
         <section id="methodology">
             <h2>Methodology</h2>
-            <p>Describe your research approach, data collection methods, and key analytical techniques.</p>
+            <p>Most of the training techniques in this post take the same general structure as in [1], and a moderate portion of the code is reused or modified. In order, I performed the following steps:</p>
+            <ul>
+                <li>Train a beneficial perturbation (in the form of a border) on CLIP and CIFAR-100 until convergence (patience=20)</li>
+            </ul>
         </section>
 
         <section id="results">
             <h2>Results</h2>
-            <p>Present your key findings, potentially including:</p>
-            <ul>
-                <li>Main observations</li>
-                <li>Statistical analyses</li>
-                <li>Key insights</li>
-            </ul>
+            <p></p>
 
             <div class="chart">
-                <h3>Sample Chart (SVG Placeholder)</h3>
-                <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="400" height="200" fill="#f0f0f0"/>
-                    <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle">
-                        Chart Placeholder
-                    </text>
-                </svg>
             </div>
         </section>
 
         <section id="conclusion">
             <h2>Conclusion</h2>
-            <p>Summarize your key findings, their implications, and potential future research directions.</p>
+            <p></p>
         </section>
 
         <section id="references">
             <h2>References</h2>
             <ol>
-                <li>First reference</li>
-                <li>Second reference</li>
+                <li>H. Bahng, A. Jahanian, S. Sankaranarayanan, and P. Isola, “<a href="https://arxiv.org/abs/2203.17274" target="_blank">Exploring Visual Prompts for Adapting Large-Scale Models</a>,” Jun. 03, 2022, arXiv: arXiv:2203.17274. doi: 10.48550/arXiv.2203.17274.</li>
+                <li>G. F. Elsayed, I. Goodfellow, and J. Sohl-Dickstein, “<a href="https://arxiv.org/abs/1806.11146" target="_blank">Adversarial Reprogramming of Neural Networks</a>,” Nov. 29, 2018, arXiv: arXiv:1806.11146. doi: 10.48550/arXiv.1806.11146.</li>
+                <li>C. Szegedy et al., “<a href="https://arxiv.org/abs/1312.6199" target="_blank">Intriguing properties of neural networks</a>,” Feb. 19, 2014, arXiv: arXiv:1312.6199. doi: 10.48550/arXiv.1312.6199.</li>
+                <li> L. Engstrom, A. Ilyas, S. Santurkar, D. Tsipras, B. Tran, and A. Madry, “<a href="https://arxiv.org/abs/1906.00945" target="_blank">Adversarial Robustness as a Prior for Learned Representations</a>,” Sep. 27, 2019, arXiv: arXiv:1906.00945. doi: 10.48550/arXiv.1906.00945.
+                </li>
             </ol>
+        </section>
+
+        <section>
+            <h2>Appendix</h2>
+            <p>Example of the structure of the beneficial perturbation prompting pipeline for CLIP (figure from [1]):</p>
+            <img src="clip.png" width="100%"/>
+            <p>This singular perturbation was trained with respect to constant model weights.</p>
         </section>
     </main>
 </body>
